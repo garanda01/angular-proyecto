@@ -1,0 +1,47 @@
+<h2>Formulario</h2>
+<div class="example-wrap">
+  <form class="k-form" [formGroup]="registerForm" ngFor='let l of llenarform'>
+    <!-- ngFor="llenarform" -->
+    <fieldset class="k-form-fieldset">
+      <kendo-formfield>
+        
+        <kendo-label text="Nombre: "><!-- {{item.nombre}} --></kendo-label>
+        <kendo-textbox formControlName="nombre" [clearButton]="true" #nombre required>
+        </kendo-textbox>
+        <kendo-formhint>Ingresa tu nombre </kendo-formhint>
+        <kendo-formerror>Error: Tu nombre es requerido</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label text="Apellidos: "><!-- {{item.apellidos}} --></kendo-label>
+        <kendo-textbox formControlName="apellidos" [clearButton]="true" #apellidos required></kendo-textbox>
+        <kendo-formhint>Ingresa tus apellidos</kendo-formhint>
+        <kendo-formerror>Error: Tus apellidos son requeridos</kendo-formerror>
+      </kendo-formfield>
+ 
+      <kendo-formfield>
+        <kendo-label text="Edad: "></kendo-label>
+        <kendo-textbox formControlName="edad" [clearButton]="true" #edad required></kendo-textbox>
+        <kendo-formhint>Ingresa tu edad</kendo-formhint>
+        <kendo-formerror>Error: Tu edad es requerida</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label text="Fecha de Nacimiento: "></kendo-label>
+        <kendo-datepicker #fechanacimiento [format]="format" formControlName="fechanacimiento">
+          <kendo-datepicker-messages today="Hoy" toggle="Cambiar calendario"></kendo-datepicker-messages>
+        </kendo-datepicker>
+        <kendo-formhint>Ingresa la fecha de tu nacimiento</kendo-formhint>
+        <kendo-formerror>Error: Tu fecha de nacimiento requerida</kendo-formerror>
+      </kendo-formfield>
+
+      <div class="k-form-buttons">
+        <button [disabled]="registerForm.invalid" class="k-button k-primary" (click)="GuardarForm()">
+          {{namebutton}}
+        </button>
+        <button class="k-button" (click)="LimpiarForm()">Cancelar</button>
+      </div>
+    </fieldset>
+    
+  </form>
+</div>

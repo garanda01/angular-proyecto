@@ -1,0 +1,156 @@
+<h2>Tabla de Usuarios</h2>
+
+<kendo-grid [data]="gridData">
+  <input type="text">
+  <kendo-grid-column field="id" title="Id"></kendo-grid-column>
+  <kendo-grid-column field="nombre" title="Nombre"> </kendo-grid-column>
+  <kendo-grid-column field="apellidos" title="Apellidos"> </kendo-grid-column>
+  <kendo-grid-column field="edad" title="Edad"> </kendo-grid-column>
+  <kendo-grid-column field="fechanacimiento" title="Fecha de Nacimiento"  >
+  </kendo-grid-column>
+  <kendo-grid-column field="acciones" title="Acciones">
+    <ng-template kendoGridCellTemplate let-isNew="isNew" let-dataItem>
+      <button kendoGridEditCommand type="button" [primary]="true" (click)="YesUpdate(dataItem)">
+        Editar
+      </button>
+      <button kendoGridEditCommand (click)="YesDelete(dataItem)">
+        Eliminar
+      </button>
+      <!--  Formulario Editar -->
+      <!-- <kendo-dialog
+        title="Editar Usuario"
+        *ngIf="dialogOpenEdit"
+        (close)="closeUpdate()"
+        [minWidth]="250"
+        [width]="450"
+      >
+       
+        <form class="k-form" [formGroup]="updateForm">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label text="Nombre: "></kendo-label>
+              <kendo-textbox
+                formControlName="mnombre"
+                [clearButton]="true"
+                #nombre
+                required
+              ></kendo-textbox>
+              <kendo-formhint>Ingresa tu nombre</kendo-formhint>
+              <kendo-formerror>Error: Tu nombre es requerido</kendo-formerror>
+            </kendo-formfield>
+
+            <kendo-formfield>
+              <kendo-label text="Apellidos: "></kendo-label>
+              <kendo-textbox
+                formControlName="mapellidos"
+                [clearButton]="true"
+                #apellidos
+                required
+              ></kendo-textbox>
+              <kendo-formhint>Ingresa tus apellidos</kendo-formhint>
+              <kendo-formerror
+                >Error: Tus apellidos son requeridos</kendo-formerror
+              >
+            </kendo-formfield>
+
+            <kendo-formfield>
+              <kendo-label text="Edad: "></kendo-label>
+              <kendo-textbox
+                formControlName="medad"
+                [clearButton]="true"
+                #edad
+                required
+              ></kendo-textbox>
+              <kendo-formhint>Ingresa tu edad</kendo-formhint>
+              <kendo-formerror>Error: Tu edad es requerida</kendo-formerror>
+            </kendo-formfield>
+
+            <kendo-formfield>
+              <kendo-label text="Fecha de Nacimiento: "></kendo-label>
+              <kendo-datepicker
+                #fechanacimiento
+                formControlName="mfechanacimiento"
+                ><kendo-datepicker-messages
+                  today="Hoy"
+                  toggle="Cambiar calendario"
+                ></kendo-datepicker-messages>
+              </kendo-datepicker>
+              <kendo-formhint>Ingresa la fecha de tu nacimiento</kendo-formhint>
+              <kendo-formerror
+                >Error: Tu fecha de nacimiento requerida</kendo-formerror
+              >
+            </kendo-formfield>
+
+            <div class="k-form-buttons">
+              <button
+                [disabled]="updateForm.invalid"
+                class="k-button k-primary"
+                (click)="YesUpdate(dataItem)"
+              >
+                Actualizar
+              </button>
+              <button class="k-button" (click)="closeUpdate()">Cancelar</button>
+            </div>
+          </fieldset>
+        </form>
+      </kendo-dialog>  -->
+      <!--  Fin Formulario Editar -->
+
+      <!--  <form class="k-form" >
+          <fieldset class="k-form-fieldset">
+            <label class="k-form-field">
+              <span>Nombre:</span>
+              <input class="k-textbox" required />
+            </label>
+            <label class="k-form-field">
+              <span>Apellidos</span>
+              <input class="k-textbox" required />
+            </label>
+            <label class="k-form-field">
+              <span>Edad</span>
+              <input class="k-textbox" required />
+            </label>
+            <label class="k-form-field">
+              <span>Fecha de Nacimiento</span>
+              <input class="k-textbox" required />
+              <kendo-datepicker-messages
+              today="Hoy"
+              toggle="Cambiar calendario"
+            ></kendo-datepicker-messages>
+            </label>
+          </fieldset>
+
+          <div class="k-form-buttons">
+            <button class="k-button k-primary" (click)="YesUpdate(dataItem)">Actualizar</button>
+            <button class="k-button" (click)="closeUpdate()">Cancelar</button>
+          </div>
+        </form>  -->
+
+      <!-- Fin Editar -->
+
+      <!-- Eliminar -->
+      <!-- <kendo-dialog
+        title="Confirmar Eliminación"
+        *ngIf="dialogOpened"
+        (close)="closeDelete()"
+        [minWidth]="250"
+        [width]="450"
+      >
+        <p style="margin: 30px; text-align: center">
+          ¿Eliminar registro de la tabla?
+        </p>
+        <kendo-dialog-actions>
+          <button
+            kendoGridEditCommand
+            (click)="YesDelete(dataItem)"
+            [primary]="true"
+          >
+            Si
+          </button>
+          <button kendoGridEditCommand (click)="NoDelete()">No</button>
+        </kendo-dialog-actions>
+      </kendo-dialog> -->
+      <!-- Fin Eliminar -->
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
